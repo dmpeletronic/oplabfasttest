@@ -7,3 +7,6 @@ To create this container, run the following command:
 
 docker build -t oplabdev .
 
+To run the image with the developed solutions, please add the root folder into the created container with the command below:
+
+docker run -v .:/opt/oplab/ oplabdev --it
