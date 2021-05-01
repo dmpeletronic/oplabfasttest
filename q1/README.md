@@ -28,6 +28,10 @@ To run the development environment please check the docker-env folder.
 
 Compile:
  - Access the /opt/oplab/q1 folder, and execute:
+    mkdir build
+    cd build
+    cmake ../
+    make
 
 Run cli:
  "Usage: ./cli TotalArea"
