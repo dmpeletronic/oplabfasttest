@@ -28,19 +28,20 @@ To run the development environment please check the docker-env folder.
 
 Compile:
  - Access the /opt/oplab/q1 folder, and execute:
-    mkdir build
+ ```mkdir build
     cd build
     cmake ../
     make
+ ```
 
 Run cli:
- "Usage: ./cli TotalArea"
- ./cli 12
- ./cli 15324
- ./cli 1000000
+```Usage: ./cli TotalArea
+   ./cli 12
+   ./cli 15324
+```
 
 Run test cases:
- ./unittest
+ ```./unittest```
 
 
 #### 1.3 Discussions
@@ -53,6 +54,7 @@ Second square: 13x13 => 169
 It means that if we use the first square, it won't be possible to have an square of size 13x13 (169), because if we add this case, the total area won't fit the informed area of 15324. 
 
 See the example below:
+<rawtext>
 
         123                      13
      _______________________ _____________
@@ -65,6 +67,7 @@ See the example below:
     |                       |25area|
     |                       |______|
     |_______________________|_|1 area 
+</rawtext>
 
 To became a real quadrilateral, we should have 4 edges and 4 angles, but as you can see, there is more than that. If we sumup the 4 squares areas, we will achieve the 15324, but this is not the enunciate request.
 
