@@ -33,13 +33,14 @@ while N > 1:
 Count every operation 
 
 
-
 #### 4.2 Solution compile, test and run
 
 The solution is proposed in python. In python, we are using the native implementation of bignumbers, so we don't need to deal with it. 
 
 Run:
-    python3 cli/cli.py
+    python3 -m cli.cli BIGNUMBER
+    example:
+    python3 -m cli.cli 1248390
   
 Run unit test cases from base folder:
     python3 -m unittest tests.test
@@ -74,3 +75,38 @@ Example:
                 |_________this is the lower power of 2: 0x40 = 64decimal    
 
 Regarding the BigNumber operations native in Python, I could reimplement the wheel but it would take some time to develop and unittest it. I assumed that the knowledge of bignumber algorithms to sum, subtract, divide, rotate, bitwise, and others, wasn't the focus of this test. 
+
+I measured the time to execute and the solution is really fast. The third measurement is the bignumber processing without the argparsing: 0.031seconds.
+
+
+
+python3 -m cli.cli 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368
+1025
+
+real    0m0.068s
+user    0m0.036s
+sys     0m0.001s
+
+
+
+
+time python3 -m unittest tests.test
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK
+
+real    0m0.115s
+user    0m0.047s
+sys     0m0.032s
+
+
+
+
+time python3 operations/operations.py 
+RESULT:  1025
+
+real    0m0.031s
+user    0m0.012s
+sys     0m0.009s
