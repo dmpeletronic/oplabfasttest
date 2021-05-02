@@ -17,6 +17,7 @@ RUN apt install -y build-essential
 RUN apt install -y python3
 RUN apt install -y cmake
 RUN apt install -y git
+RUN apt install -y rustc
 
 #RUN apt install -y erlang
 #Gtest specific build
