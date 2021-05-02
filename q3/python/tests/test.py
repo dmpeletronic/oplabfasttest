@@ -50,6 +50,13 @@ class TestStringMethods(unittest.TestCase):
             self.assertEqual(searchsequence.searchsequence(nlist, 5000), (0,49))
             self.assertEqual(searchsequence.searchsequence(nlist, 10100), (-1,1))
 
+    def test_searchsequence7(self):
+            nlist = [250]*100
+            self.assertEqual(searchsequence.searchsequence(nlist, 250), (0,0))
+            self.assertEqual(searchsequence.searchsequence(nlist, 250*100), (0,99))
+            self.assertEqual(searchsequence.searchsequence(nlist, 250*50), (0,49))
+            self.assertEqual(searchsequence.searchsequence(nlist, 250*101), (-1,1))
+
 
 if __name__ == '__main__':
     unittest.main()
