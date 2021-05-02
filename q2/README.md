@@ -11,8 +11,8 @@ Por exemplo: `f(3)` deve retornar `71113`.
 
 #### 2.1 Solution proposal
 
-The solution is proposed in Rust. It firstly calculates the 1000 first 10000 primes and store them into the string that will be checked against the requested position.
-
+First, it calculates the first 10000 primes and store them into the string that will be checked against the requested position.
+The optimizations are discussed in section 2.3.
 
 #### 2.2 Solution compile, test and run
 
@@ -28,17 +28,19 @@ Run:
     ./target/debug/prime_generator POSITION
  where POSITION is the index position N to look for the 5 p digits
  
-Run test cases:
- ./unittest
+Run unit test cases:
+    cargo test
 
 #### 1.3 Discussions
 
-The initial idea was to separate the prime numbers generation from the search for the requested position. This choice of two separated task for this question was evaluated because finding the Nth prime number can be a time consuming task, even when appling a lot of optimizations as described in this [link](https://levelup.gitconnected.com/how-to-find-the-nth-prime-number-c16dac27963). Doing so, we could optimize the search of the required Nth prime number.
-But, after doing some tests with Rust, we detected that it was taking less than 200ms to calculate them all. As there is no time restriction for the problem solution, we decided to keep calculating all the primes.
+The initial idea was to separate the prime numbers generation from the search for the requested position into two diffrents applications. This choice was evaluated because finding the Nth prime number can be a time consuming task, even when appling a lot of optimizations as described in this [link](https://levelup.gitconnected.com/how-to-find-the-nth-prime-number-c16dac27963). 
+Doing so, we could optimize the search of the required Nth prime number to an ordered lookup table.
+But, after doing some tests with Rust, it was detected that it takes less than 200ms to calculate them all. As there is no time restriction for the problem solution, we decided to go with runtime calculation all the 10005 primes.
 
-Some interesting things about rust:
+Some interesting learning about rust:
  - cargo: a build system for rust instead of calling rustc
  - cargo new ProjName: create a new project (create Cargo.toml that defines and configures the project)
  - cargo build: builds the app into target/debug folder
  - cargo run: runs the builded app
  - cargo check: check if code will compile
+ - cargo test: compiles and runs unittest and integration tests
