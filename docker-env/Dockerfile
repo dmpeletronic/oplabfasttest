@@ -18,9 +18,9 @@ RUN apt install -y python3
 RUN apt install -y cmake
 RUN apt install -y git
 RUN apt install -y rustc
+RUN apt install -y erlang
 
-#RUN apt install -y erlang
 #Gtest specific build
 RUN apt install -y libgtest-dev
 COPY build_gtest.sh /opt/
-RUN /opt/build_gtest.sh
+RUN bash /opt/build_gtest.sh
